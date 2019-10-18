@@ -42,7 +42,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a class="btn btn-primary" href="{{ route('urn.create', $urn->id) }}" >Cadastrar</a>
     </div>
 
 @stop

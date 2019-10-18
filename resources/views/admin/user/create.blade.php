@@ -60,7 +60,7 @@
         <div class="form-group">
             <label for="name">nível de acesso</label>
             <select name="role_id" id="role_id" class="form-control form-control-sm" required>
-                <option value="2" selected>Candidato</option>
+                <option value="2" selected>Eleitor</option>
                 <option value="1" selected>Administrador</option>
             </select>
         </div>
