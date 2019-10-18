@@ -1,29 +1,29 @@
-@extends('candidate.master')
+@extends('elector.master')
 
 @section('adminlte_css')
     <link rel="stylesheet"
-          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('candidate.skin', 'blue') . '.min.css')}} ">
+          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('elector.skin', 'blue') . '.min.css')}} ">
     @stack('css')
     @yield('css')
 @stop
 
-@section('body_class', 'skin-' . config('candidate.skin', 'blue') . ' sidebar-mini ' . (config('candidate.layout') ? [
+@section('body_class', 'skin-' . config('elector.skin', 'blue') . ' sidebar-mini ' . (config('elector.layout') ? [
     'boxed' => 'layout-boxed',
     'fixed' => 'fixed',
     'top-nav' => 'layout-top-nav'
-][config('candidate.layout')] : '') . (config('candidate.collapse_sidebar') ? ' sidebar-collapse ' : ''))
+][config('elector.layout')] : '') . (config('elector.collapse_sidebar') ? ' sidebar-collapse ' : ''))
 
 @section('body')
     <div class="wrapper">
 
         <!-- Main Header -->
         <header class="main-header">
-            @if(config('candidate.layout') == 'top-nav')
+            @if(config('elector.layout') == 'top-nav')
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a href="{{ url(config('candidate.dashboard_url', 'home')) }}" class="navbar-brand">
-                            {!! config('candidate.logo', '<b>Admin</b>LTE') !!}
+                        <a href="{{ url(config('elector.dashboard_url', 'home')) }}" class="navbar-brand">
+                            {!! config('elector.logo', '<b>Admin</b>LTE') !!}
                         </a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
@@ -39,11 +39,11 @@
                     <!-- /.navbar-collapse -->
             @else
             <!-- Logo -->
-            <a href="{{ url(config('candidate.dashboard_url', 'home')) }}" class="logo">
+            <a href="{{ url(config('elector.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">{!! config('candidate.logo_mini', '<b>A</b>LT') !!}</span>
+                <span class="logo-mini">{!! config('elector.logo_mini', '<b>A</b>LT') !!}</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">{!! config('candidate.logo', '<b>Admin</b>LTE') !!}</span>
+                <span class="logo-lg">{!! config('elector.logo', '<b>Admin</b>LTE') !!}</span>
             </a>
 
             <!-- Header Navbar -->
@@ -61,27 +61,27 @@
                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
                             </a>
-                            <form id="logout-form" action="{{ url(config('candidate.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ url(config('elector.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </li>
-                        @if(config('candidate.right_sidebar') and (config('candidate.layout') != 'top-nav'))
+                        @if(config('elector.right_sidebar') and (config('elector.layout') != 'top-nav'))
                         <!-- Control Sidebar Toggle Button -->
                             <li>
-                                <a href="#" data-toggle="control-sidebar" @if(!config('candidate.right_sidebar_slide')) data-controlsidebar-slide="false" @endif>
-                                    <i class="{{config('candidate.right_sidebar_icon')}}"></i>
+                                <a href="#" data-toggle="control-sidebar" @if(!config('elector.right_sidebar_slide')) data-controlsidebar-slide="false" @endif>
+                                    <i class="{{config('elector.right_sidebar_icon')}}"></i>
                                 </a>
                             </li>
                         @endif
                     </ul>
                 </div>
-                @if(config('candidate.layout') == 'top-nav')
+                @if(config('elector.layout') == 'top-nav')
                 </div>
                 @endif
             </nav>
         </header>
 
-        @if(config('candidate.layout') != 'top-nav')
+        @if(config('elector.layout') != 'top-nav')
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
 
@@ -116,7 +116,7 @@
                             </span>
                             </a>
                         </li>
-                    {{-- @each('candidate.partials.menu-item', $adminlte->menu(), 'item') --}}
+                    {{-- @each('elector.partials.menu-item', $adminlte->menu(), 'item') --}}
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
@@ -126,7 +126,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @if(config('candidate.layout') == 'top-nav')
+            @if(config('elector.layout') == 'top-nav')
             <div class="container">
             @endif
 
@@ -142,7 +142,7 @@
 
             </section>
             <!-- /.content -->
-            @if(config('candidate.layout') == 'top-nav')
+            @if(config('elector.layout') == 'top-nav')
             </div>
             <!-- /.container -->
             @endif
@@ -155,8 +155,8 @@
         </footer>
         @endif
 
-        @if(config('candidate.right_sidebar') and (config('candidate.layout') != 'top-nav'))
-            <aside class="control-sidebar control-sidebar-{{config('candidate.right_sidebar_theme')}}">
+        @if(config('elector.right_sidebar') and (config('elector.layout') != 'top-nav'))
+            <aside class="control-sidebar control-sidebar-{{config('elector.right_sidebar_theme')}}">
                 @yield('right-sidebar')
             </aside>
             <!-- /.control-sidebar -->

@@ -34,7 +34,7 @@ class BallotController extends Controller
         foreach ($ballots as $ballot) {
             if (Hash::check($user->id, $ballot->elector)) {
                 Session::flash('alert-warning', 'Urna ' . $urn->title . ' já foi votada, você não pode votar novamente.');
-                return redirect()->route('candidate');
+                return redirect()->route('elector');
             }
         }
         return view('ballot.create', compact('urn'));
@@ -54,7 +54,7 @@ class BallotController extends Controller
         foreach ($ballots as $ballot) {
             if (Hash::check($user->id, $ballot->elector)) {
                 $request->session()->flash('alert-warning', 'Urna já foi votada, você não pode votar novamente.');
-                return redirect()->route('candidate');
+                return redirect()->route('elector');
             }
         }
         Ballot::create([
@@ -65,7 +65,7 @@ class BallotController extends Controller
         ]);
 
         $request->session()->flash('alert-success', 'Voto na urna efetuado com sucesso.');
-        return redirect()->route('candidate');
+        return redirect()->route('elector');
     }
 
     /**

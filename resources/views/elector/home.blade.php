@@ -1,4 +1,4 @@
-@extends('candidate.page')
+@extends('elector.page')
 
 @section('title', 'Vota-I')
 

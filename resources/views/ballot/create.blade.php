@@ -1,4 +1,4 @@
-@extends('candidate.page')
+@extends('elector.page')
 
 @section('title', 'Vota-I')
 
@@ -21,7 +21,7 @@
 
             @endforeach
         </div>
-        <a href="{{route('candidate')}}" class="btn btn-secondary">Voltar</a>
+        <a href="{{route('elector')}}" class="btn btn-secondary">Voltar</a>
         <button type="submit" class="btn btn-default">Branco</button>
         <button type="reset" class="btn btn-warning">Corrigir</button>
         <button type="submit" class="btn btn-success">Confirmar</button>

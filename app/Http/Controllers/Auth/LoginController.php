@@ -37,17 +37,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // public function auth()
-    // {
-    //     $user = Auth::user();
-    //     if ($user != null) {
-
-    //         if ($user->role_id == 1) {
-    //             return redirect()->action('AdminController@home');
-    //         } elseif ($user->role_id == 2) {
-    //             return redirect()->action('CandidateController@index');
-    //         }
-    //     }
-    //     return redirect()->route('home');
-    // }
 }

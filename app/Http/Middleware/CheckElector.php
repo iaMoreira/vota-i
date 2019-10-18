@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckCandidate
+class CheckElector
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class CheckCandidate
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role_id == 2){
+        if (Auth::user()->role_id == 2) {
             return $next($request);
-        }else{
+        } else {
             return redirect()->route('home');
         }
     }

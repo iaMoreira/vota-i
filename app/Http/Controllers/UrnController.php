@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Urn;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
 class UrnController extends Controller
@@ -41,8 +42,8 @@ class UrnController extends Controller
     {
         $input = $request->except('_token');
         list($begin, $end) = explode('-', $input['date']);
-        $begin = Carbon::createFromDate($begin);
-        $end = Carbon::createFromDate($end);
+        $begin = Carbon::createFromFormat('d/m/Y H:i A ', $begin);
+        $end = Carbon::createFromFormat(' d/m/Y H:i A', $end);
         $urn = Urn::create([
             'title' => $input['title'],
             'begin' => $begin,

@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'candidate',
+    'dashboard_url' => 'elector',
 
     'logout_url' => 'logout',
 
